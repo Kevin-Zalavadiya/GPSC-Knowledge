@@ -1,0 +1,102 @@
+{% extends 'basic.html' %}
+{% block title %}Plans - For Education{% endblock %}
+{% load static %}
+
+
+{% block body %}
+{% include 'messages.html' %}
+
+<div id="generic_price_table">
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!--PRICE HEADING START-->
+                    <div class="price-heading clearfix">
+                        <h1>Subscription</h1>
+                    </div>
+                    <!--//PRICE HEADING END-->
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <!--BLOCK ROW START-->
+            <div class="row">
+                {% for i in plandetails%}
+                <div class="col-md-4">
+                  <!--PRICE CONTENT START-->
+                    <div class="generic_content clearfix">
+
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+
+                              <!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>{{i.plan_name}}</span>
+                                </div>
+                                <!--//HEAD END-->
+
+                            </div>
+                            <!--//HEAD CONTENT END-->
+
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">
+                                <span class="price">
+                                    <span class="sign"></span>
+                                    <span class="currency">{{i.amount}}</span>
+                                    <span class="month">rs</span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+
+                        </div>
+                        <!--//HEAD PRICE DETAIL END-->
+
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                              <ul>
+                                  <li>{{i.duration}}</li>
+                                  <li>{{i.status}}</li>
+                                  <li>{{i.payment_method}}</li>
+                              </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+
+                        <!--BUTTON START-->
+                        <div class="generic_price_btn clearfix">
+                          <a class="" href="/payment/{{i.id}}">Get Started</a>
+                        </div>
+                        <!--//BUTTON END-->
+
+                    </div>
+                    <!--//PRICE CONTENT END-->
+                </div>
+                {%endfor%}
+            </div>
+    </section>
+
+
+     <!-- <section> close ============================-->
+      <!-- ============================================-->
+<script src=" {% static 'vendors/@popperjs/popper.min.js' %} "></script>
+    <script src=" {% static 'vendors/bootstrap/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'vendors/is/is.min.js' %} "></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src=" {% static 'vendors/fontawesome/all.min.js' %} "></script>
+    <script src=" {% static 'assets/js/theme.js' %} "></script>
+    <script src=" {% static 'assets/js/responsive.js' %} "></script>
+{% endblock %}
+
+{% block js %}
+<script src=" {% static 'vendors/@popperjs/popper.min.js' %} "></script>
+    <script src=" {% static 'vendors/bootstrap/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'vendors/is/is.min.js' %} "></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src=" {% static 'vendors/fontawesome/all.min.js' %} "></script>
+    <script src=" {% static 'assets/js/theme.js' %} "></script>
+    <script src=" {% static 'assets/js/responsive.js' %} "></script>
+{% endblock %}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>{% block title%} {% endblock %}</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href=" {% static 'assets/img/favicons/apple-touch-icon.png' %} ">
+    <link rel="icon" type="image/png" sizes="32x32" href=" {% static 'assets/img/favicons/favicon-32x32.png' %} ">
+    <link rel="icon" type="image/png" sizes="16x16" href=" {% static 'assets/img/favicons/favicon-16x16.png' %} ">
+    <link rel="shortcut icon" type="image/x-icon" href=" {% static 'assets/img/favicons/favicon.ico' %} ">
+    <link rel="manifest" href=" {% static 'assets/img/favicons/manifest.json' %} ">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href=" {% static 'assets/css/theme.css' %} " rel="stylesheet" />
+    <link href=" {% static 'assets/css/dought.css' %} " rel="stylesheet" />
+    <link href=" {% static 'assets/css/plans.css' %} " rel="stylesheet">
+    <link href=" {% static 'assets/css/payment.css' %} " rel="stylesheet">
+
+    {% block head %} {% endblock %}
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="bg-primary py-2 d-none d-sm-block">
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-auto d-none d-lg-block">
+              <p class="my-2 fs--1"><i class="fas fa-map-marker-alt me-3"></i><span>Ahmedabad,Gujarat   </span></p>
+            </div>
+            <div class="col-auto ms-md-auto order-md-2 d-none d-sm-block">
+
+            </div>
+            <div class="col-auto">
+              <p class="my-2 fs--1"><i class="fas fa-envelope me-3"></i><a class="text-900" href=" {% static 'mailto:vctung@outlook.com' %} ">gpscknowledge@gmail.com </a></p>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container"><a class="navbar-brand" href="/"><img src=" {% static 'assets/img/gallery/header.jpg' %} " height="45" alt="logo" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+              {% if request.session.log_id %}
+                {% if teacher %}
+                    <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/branches">Branches</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/teacherdescription">Book</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/teachermaterial">Material</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/teachervideo">Video</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/showdought">Dought list</a></li>
+                {% else %}
+                    <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/branches">Branches</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/doughtsolve">Dought</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/complains">Complain</a></li>
+                    {% if userplanrenew.is_active %}
+                    <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/userActivePlan">Plans</a></li>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+
+
+
+              {% if request.session.log_id %}
+              <li class="nav-item px-2"><a class="btn btn-primary order-1 order-lg-0" href="/logout">Log Out</a></li>
+                {% if teacher %}
+                    {% if teacherprofiledata.subject == None %}
+                    <li class="nav-item px-2"><a class="btn btn-primary order-1 order-lg-0" href="/teacherprofile">Teacher Profile</a></li>
+                    {%else%}
+                    <li class="nav-item px-2"><a class="btn btn-primary order-1 order-lg-0" href="/showteacher">View Teacher Profile</a></li>
+                    {%endif%}
+                {%else%}
+                    {%if profiledata == None%}
+                     <li class="nav-item px-2"><a class="btn btn-primary order-1 order-lg-0" href="/userprofile">User Profile</a></li>
+                    {%else%}
+                    <li class="nav-item px-2"><a class="btn btn-primary order-1 order-lg-0" href="/profile">View User Profile</a></li>
+                    {%endif%}
+                {%endif%}
+              {%else%}
+              <li class="nav-item px-2"><a class="btn btn-primary order-1 order-lg-0" href="/signup">Sign Up</a></li>
+              <li class="nav-item px-2"><a class="btn btn-primary order-1 order-lg-0" href="/login">Sign In</a></li>
+              {%endif%}
+
+            </ul>
+
+
+          </div>
+        </div>
+      </nav>
+
+      {% block body %}
+      {% endblock %}
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="bg-secondary">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0"><a class="text-decoration-none" href="#"><img src=" {% static 'assets/img/gallery/footer-logo.png' %} " height="51" alt="" /></a>
+              <p class="text-light my-4"> <i class="fas fa-map-marker-alt me-3"></i><span class="text-light">Ahmedabad,Gujarat&nbsp;</span><a class="text-light"></a><br />India</p>
+              <p class="text-light"> <i class="fas fa-envelope me-3"> </i><a class="text-light" href="/">gpscknowledge@gmail.com </a></p>
+              <p class="text-light"> <i class="fas fa-phone-alt me-3"></i><a class="text-light" href="/">+91 7698377354 (Support)</a></p>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
+              <h5 class="lh-lg fw-bold mb-4 text-light font-sans-serif">Community </h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-200" href= "/branches">branches</a></li>
+                <li class="lh-lg"><a class="text-200" href="/Dought">Dought</a></li>
+                <li class="lh-lg"><a class="text-200" href="/Complains">Complains</a></li>
+                <li class="lh-lg"><a class="text-200" href="/">Tech Blog</a></li>
+                <li class="lh-lg"><a class="text-200" href="/">Teaching Center</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+              <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif">Informations</h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-200" href="/">About</a></li>
+                <li class="lh-lg"><a class="text-200" href="/">Blog</a></li>
+                <li class="lh-lg"><a class="text-200" href="/">Careers</a></li>
+                <li class="lh-lg"><a class="text-200" href="/">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+              <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif"> More</h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-200" href="/">Terms</a></li>
+                <li class="lh-lg"><a class="text-200" href="/">Privacy</a></li>
+                <li class="lh-lg"><a class="text-200" href="/">Help</a></li>
+                <li class="lh-lg"><a class="text-200" href="/">Contact</a></li>
+                <li class="lh-lg"><a class="text-200" href="/">Articles</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src=" {% static 'vendors/@popperjs/popper.min.js' %} "></script>
+    <script src=" {% static 'vendors/bootstrap/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'vendors/is/is.min.js' %} "></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src=" {% static 'vendors/fontawesome/all.min.js' %} "></script>
+    <script src=" {% static 'assets/js/theme.js' %} "></script>
+    <script src=" {% static 'assets/js/responsive.js' %} "></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Rubik:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  </body>
+{% block js %} {% endblock %}
+</html>

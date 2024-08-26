@@ -1,0 +1,40 @@
+{% extends 'basic.html' %}
+{% block title %}Videos - For Education{% endblock %}
+{% load static %}
+
+
+{% block body %}
+{% include 'messages.html' %}
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section>
+
+        <div class="container">
+          <div class="row">
+            <h1 class="text-center mb-5">Videos</h1>
+              {% for gv in getvids %}
+  <div class="col-md-4 mb-4">
+    <div class="card h-100" style="height: 400px;">
+      <video src="/media/{{ gv.video }}" controls></video>
+      <div class="card-body">
+
+        <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{ gv.video_desc }}</h5>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+
+{% endblock %}
+

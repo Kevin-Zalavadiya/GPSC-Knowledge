@@ -1,0 +1,77 @@
+{% extends 'basic.html' %}
+{% block title %}Sign Up - For Education{% endblock %}
+{% load static %}
+
+
+{% block body %}
+{% include 'messages.html' %}
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="bg-600">
+
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-6">
+              <div class="card mb-5 mb-md-0 h-100">
+                <div class="text-center mb-2"><h1 class="mt-6">Dought</h1></div>
+                <div class="card-body px-4 py-6 py-md-5 py-lg-6">
+                    <form class="form-contact contact_form" action="/updatedought" method="post" id="contactForm" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            <div class="row">
+
+                                <div class="col-12 mb-3">
+                                    <div class="form-group">
+                                        <label>Status : </label>
+                                        <select class="form-control valid" name="status1" style="padding:5px;">
+                                            <option value="{{user.status}}">Status</option>
+                                            <option>Resolve</option>
+                                            <option>Not Resolve</option>
+                                         </select>
+                                    </div>
+                                </div>
+
+
+                            </div>
+<div class="d-grid"><button class="btn btn-lg btn-secondary" type="submit">Submit</button></div>
+                        </form>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+<script src=" {% static 'vendors/@popperjs/popper.min.js' %} "></script>
+    <script src=" {% static 'vendors/bootstrap/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'vendors/is/is.min.js' %} "></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src=" {% static 'vendors/fontawesome/all.min.js' %} "></script>
+    <script src=" {% static 'assets/js/theme.js' %} "></script>
+    <script src=" {% static 'assets/js/responsive.js' %} "></script>
+{% endblock %}
+
+{% block js %}
+<script src=" {% static 'vendors/@popperjs/popper.min.js' %} "></script>
+    <script src=" {% static 'vendors/bootstrap/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'vendors/is/is.min.js' %} "></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src=" {% static 'vendors/fontawesome/all.min.js' %} "></script>
+    <script src=" {% static 'assets/js/theme.js' %} "></script>
+    <script src=" {% static 'assets/js/responsive.js' %} "></script>
+{% endblock %}
+
+
+
+
+

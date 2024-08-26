@@ -1,0 +1,49 @@
+{% extends 'basic.html' %}
+{% block title %}Semesters - For Education{% endblock %}
+{% load static %}
+
+{% block body %}
+{% include 'messages.html' %}
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section>
+        <div class="container">
+          <div class="row">
+            <h1 class="text-center mb-5"> All Semester</h1>
+            {% for as in allsem %}
+            <div class="col-md-4 mb-4">
+              <div class="card h-100"><img class="card-img-top w-100" src="/media/{{as.semimage}}" alt="courses" height="200px"/>
+                <div class="card-body">
+                  <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{as.semester}}</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="/sembranchwisedata?semid={{as.id}}&branchid={{bid}}"></a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+
+{% endblock %}
+
+# COMPLAIN
+USERID
+TIMESTAMP
+TEACHERID
+comment
+
+# dought
+userid
+teacherid
+subjectid
+description
+timestamp
+status

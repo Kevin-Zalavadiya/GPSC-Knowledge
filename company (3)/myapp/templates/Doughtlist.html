@@ -1,0 +1,76 @@
+{% extends 'basic.html' %}
+{% block title %}Sign Up - For Education{% endblock %}
+{% load static %}
+
+{% block body %}
+{% include 'messages.html' %}
+
+    <!-- user profile data -->
+    <section class="w3l-form1">
+        <div class="form">
+            <div class="wrapper">
+                <div class="form-content">
+                    <div class="form-left">
+                        <div class="middle">
+                            <h4 align="center">Dought list</h4><br><br>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table  text-center">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Subject</th>
+                                        <th>Description</th>
+                                        <th>Time</th>
+                                        <th>status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in showdoughtdata %}
+                                    <tr>
+                                        <td>{{i.user}}</td>
+                                        <td>{{i.sub_id}}</td>
+                                        <td>{{i.description}}</td>
+                                        <td>{{i.timestamp}}</td>
+                                        <td>{{i.status}}</td>
+                                        {% if i.status != 'Resolve' %}
+                                            <td><a class="btn btn-danger" href="/updatedought/{{i.id}}" role="button">Update status</a></td>
+                                        {% else %}
+                                            <td></td> <!-- An empty cell if status is 'Resolve' -->
+                                        {% endif %}
+                                    </tr>
+                                {%endfor%}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+<script src=" {% static 'vendors/@popperjs/popper.min.js' %} "></script>
+    <script src=" {% static 'vendors/bootstrap/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'vendors/is/is.min.js' %} "></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src=" {% static 'vendors/fontawesome/all.min.js' %} "></script>
+    <script src=" {% static 'assets/js/theme.js' %} "></script>
+    <script src=" {% static 'assets/js/responsive.js' %} "></script>
+{% endblock %}
+
+{% block js %}
+<script src=" {% static 'vendors/@popperjs/popper.min.js' %} "></script>
+    <script src=" {% static 'vendors/bootstrap/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'vendors/is/is.min.js' %} "></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src=" {% static 'vendors/fontawesome/all.min.js' %} "></script>
+    <script src=" {% static 'assets/js/theme.js' %} "></script>
+    <script src=" {% static 'assets/js/responsive.js' %} "></script>
+{% endblock %}
+
+
+
+
+

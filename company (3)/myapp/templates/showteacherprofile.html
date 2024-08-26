@@ -1,0 +1,118 @@
+{% extends 'basic.html' %}
+{% block title %}Profile - For Education{% endblock %}
+{% load static %}
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+{% include 'messages.html' %}
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="bg-600">
+
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb-4 mb-sm-5">
+                <div class="card card-style1 border-0">
+                    <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-8 px-xl-10">
+                                <div class="bg-secondary d-lg-inline-block py-1-9 px-4 px-sm-6 mt-4 mb-1-9 rounded mb-4">
+                                    <h3 class="h2 text-white mb-0">{{user.user}}</h3>
+                                </div>
+
+                                <ul class="list-unstyled mb-1-9 mb-4">
+
+                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Dob:</span> {{user.date_of_birth}}</li>
+                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Subject:</span> {{user.subject}}</li>
+                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Bio:</span> {{user.bio}}</li>
+<!--                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Semester:</span> {{user.semester}}</li>-->
+<!--                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Branch:</span> {{user.branch}}</li>-->
+
+
+                                    </ul>
+
+
+                                <a class="btn btn-danger" href="/editteacher" role="button">Edit Details</a>
+                                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenterPw">Change Password</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+          <div class="modal fade" id="exampleModalCenterPw" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="login px-4 mx-auto mw-100">
+                        <h3 class="text-center mb-4">Change Your Password</h3>
+                        <form action="/changepw" method="post" enctype="multipart/form-data" class="contact-form">
+                            {% csrf_token %}
+                            <div class="form-group mb-2">
+                                <label for="cpw">Current Password:</label>
+                                    <input class="form-control" name="oldpassword" id="cpw" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Current Password'" placeholder="Enter Current Password">
+                                </div>
+                            <div class="form-group mb-2">
+                                <label for="npw">New Password:</label>
+                                    <input class="form-control" name="password" id="npw" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$" title="Password should contain atleast 1 uppercase, 1 lowercase, 1 number, 1 special character and min 8 and max 12 character." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter New Password'" placeholder="Enter New Password">
+                                </div>
+
+                            <button type="submit" class="btn btn-primary submit mb-4">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+<script src=" {% static 'vendors/@popperjs/popper.min.js' %} "></script>
+    <script src=" {% static 'vendors/bootstrap/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'vendors/is/is.min.js' %} "></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src=" {% static 'vendors/fontawesome/all.min.js' %} "></script>
+    <script src=" {% static 'assets/js/theme.js' %} "></script>
+    <script src=" {% static 'assets/js/responsive.js' %} "></script>
+<!-- Include necessary JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block js %}
+<script src=" {% static 'vendors/@popperjs/popper.min.js' %} "></script>
+    <script src=" {% static 'vendors/bootstrap/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'vendors/is/is.min.js' %} "></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src=" {% static 'vendors/fontawesome/all.min.js' %} "></script>
+    <script src=" {% static 'assets/js/theme.js' %} "></script>
+    <script src=" {% static 'assets/js/responsive.js' %} "></script>
+<!-- Include necessary JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+
+
+
+
+

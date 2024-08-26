@@ -1,0 +1,41 @@
+{% extends 'basic.html' %}
+{% block title %}Material - For Education{% endblock %}
+{% load static %}
+
+
+{% block body %}
+{% include 'messages.html' %}
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section>
+
+        <div class="container">
+          <div class="row">
+            <h1 class="text-center mb-5">Material</h1>
+              {% for gm in getmaterial %}
+  <div class="col-md-4 mb-4">
+    <div class="card h-100" style="height: 400px;">
+      <img class="card-img-top w-100" src=" {% static 'assets/img/gallery/view.png' %} " alt="courses" />
+      <div class="card-body">
+
+        <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{ gm.material_desc }}</h5>
+        <a class="text-muted fs--1 stretched-link text-decoration-none" href="/media/{{ gm.study_material }}"></a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+
+{% endblock %}
+

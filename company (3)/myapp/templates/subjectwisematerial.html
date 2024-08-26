@@ -1,0 +1,44 @@
+{% extends 'basic.html' %}
+{% block title %}Materials - For Education{% endblock %}
+{% load static %}
+
+
+{% block body %}
+{% include 'messages.html' %}
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section>
+
+        <div class="container">
+          <div class="row">
+            <h1 class="text-center mb-5">Materials</h1>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100"><img class="card-img-top w-100" src=" {% static 'assets/img/gallery/books.png' %} " alt="courses" />
+                  <a class="text-muted fs--1 stretched-link text-decoration-none" href="/viewbooks/{{subid}}"></a>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100"><img class="card-img-top w-100" src=" {% static 'assets/img/gallery/videos.png' %} " alt="courses" />
+                  <a class="text-muted fs--1 stretched-link text-decoration-none" href="/viewvideos/{{subid}}"></a>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100"><img class="card-img-top w-100" src=" {% static 'assets/img/gallery/material.png' %} " alt="courses" />
+                <a class="text-muted fs--1 stretched-link text-decoration-none" href="/viewmaterial/{{subid}}"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+
+{% endblock %}
+

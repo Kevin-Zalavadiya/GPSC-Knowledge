@@ -1,0 +1,34 @@
+{% extends 'basic.html' %}
+{% block title %}Subjects - For Education{% endblock %}
+{% load static %}
+
+
+{% block body %}
+{% include 'messages.html' %}
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section>
+
+        <div class="container">
+          <div class="row">
+            <h1 class="text-center mb-5">Subjects</h1>
+            {% for as in filtersubjects %}
+            <div class="col-md-4 mb-4">
+              <div class="card h-100"><img class="card-img-top w-100" src="/media/{{as.subimage}}" alt="courses" height="200px"/>
+                <div class="card-body">
+                  <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{as.subject_name}}</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="/subjectwisematerial/{{as.id}}"></a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+{% endblock %}
+

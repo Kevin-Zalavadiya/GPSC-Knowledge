@@ -1,0 +1,41 @@
+{% extends 'basic.html' %}
+{% block title %}Books - For Education{% endblock %}
+{% load static %}
+
+
+{% block body %}
+{% include 'messages.html' %}
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section>
+
+        <div class="container">
+          <div class="row">
+            <h1 class="text-center mb-5">Books</h1>
+              {% for gb in getbooks %}
+  <div class="col-md-4 mb-4">
+    <div class="card h-100" style="height: 400px;">
+      <img class="card-img-top w-100" src=" {% static 'assets/img/gallery/viewpdf.png' %} " alt="courses" />
+      <div class="card-body">
+
+        <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{ gb.book_desc }}</h5>
+        <a class="text-muted fs--1 stretched-link text-decoration-none" href="/media/{{ gb.book_file }}"></a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+
+{% endblock %}
+

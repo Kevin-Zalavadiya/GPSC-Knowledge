@@ -1,0 +1,47 @@
+
+{% extends 'basic.html' %}
+{% block title %}Plans - For Education{% endblock %}
+{% load static %}
+
+
+{% block body %}
+{% include 'messages.html' %}
+
+
+<div class="signin__form__text" align="center">
+        <form action="/checkpayment" method="post">
+            {% csrf_token %}
+            <h1 align="center">Payment Details</h1><br><br>
+            <div class="col-md-6">
+                <input type="hidden" value="{{plandata.id}}" name="planid">
+                <input type="text" name="cardname" placeholder="Card name">
+                <input type="text" name="cardnumber" placeholder="Card number" pattern="[0-9]{16}" title="Enter 16 digit number" required>
+                <input type="text" name="cvv1" placeholder="cvv" pattern="[0-9]{3}"  title="Please enter a 3-digit number" required>
+                <input type="text" name="expirydate" placeholder="Expiry Date">
+                <input type="number"  value="{{amount}}" placeholder="Amount" readonly>
+                <input type="hidden" value="{{amount}}" name="balance1">
+                <button type="submit" class="site-btn">Payment Now</button>
+            </div>
+        </form>
+    </div>
+
+     <!-- <section> close ============================-->
+      <!-- ============================================-->
+<script src=" {% static 'vendors/@popperjs/popper.min.js' %} "></script>
+    <script src=" {% static 'vendors/bootstrap/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'vendors/is/is.min.js' %} "></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src=" {% static 'vendors/fontawesome/all.min.js' %} "></script>
+    <script src=" {% static 'assets/js/theme.js' %} "></script>
+    <script src=" {% static 'assets/js/responsive.js' %} "></script>
+{% endblock %}
+
+{% block js %}
+<script src=" {% static 'vendors/@popperjs/popper.min.js' %} "></script>
+    <script src=" {% static 'vendors/bootstrap/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'vendors/is/is.min.js' %} "></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src=" {% static 'vendors/fontawesome/all.min.js' %} "></script>
+    <script src=" {% static 'assets/js/theme.js' %} "></script>
+    <script src=" {% static 'assets/js/responsive.js' %} "></script>
+{% endblock %}
